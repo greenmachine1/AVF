@@ -1,3 +1,5 @@
+/*
+
 html,
 body {
     height:100%;
@@ -95,6 +97,7 @@ h2 {
 
 /* portrait */
 /* @media screen and (max-aspect-ratio: 1/1) */
+/*
 .app {
     background-position:center top;
     height:100px;              /* adds enough room for text */
@@ -102,11 +105,40 @@ h2 {
 }
 
 /* lanscape (when wide enough) */
+/*
 @media screen and (min-aspect-ratio: 1/1) and (min-width:445px) {
     .app {
         background-position:left center;
         height:140px;       /* height + padding = background image size */
         padding-left:170px; /* background width */
         padding-top:60px;   /* center the text */
+/*        
     }
+}
+*/
+
+
+body{
+    background-color: #4de120;
+}
+
+h1{
+    text-align: center;
+    border: 2px solid #70ff44;
+}
+
+hr{
+    width: %100;
+    size: 10px;
+}
+
+p{
+    text-align: center;
+    color: blue;
+}
+
+
+
+.linkToMain {
+    text-align: center;
 }
