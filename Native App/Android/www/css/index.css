@@ -1,0 +1,23 @@
+body{
+    background-color: #1d98df;
+}
+
+h1{
+    text-align: center;
+    border: 2px solid #70ff44;
+}
+
+hr{
+    width: %100;
+}
+
+p{
+    text-align: center;
+    color: blue;
+}
+
+
+
+.linkToMain {
+    text-align: center;
+}

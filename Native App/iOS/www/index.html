@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!--
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name = "format-detection" content = "telephone=no"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Welcome to Gigbag</title>
+    </head>
+    <body>
+        <!-- main body of the app -->
+        <div class="app">
+            
+            <div class="heading">
+                <h1>Gigbag</h1>
+                <hr width="%100" size=10px color="black"></hr>
+            </div><!-- closing div for heading -->
+            
+            <!-- mainBody div -->
+            <div class="mainBody">
+                
+                <!-- will be replacing this video with my review video of the week -->
+                <video id="movie" width="100%" preload controls>
+                    <source src="img/myvideo.webm" type='video/webm; codecs="vp8, vorbis"' />
+                    <source src="img/myvideo.theora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+                    <source src="img/myvideo.mp4" />
+                    <object width="320" height="240" type="application/x-shockwave-flash"
+                        data="flowplayer-3.2.1.swf">
+                        <param name="movie" value="flowplayer-3.2.1.swf" />
+                        <param name="allowfullscreen" value="true" />
+                        <param name="flashvars" value='config={"clip": {"url": "http://wearehugh.com/dih5/pr6.mp4", "autoPlay":false, "autoBuffering":true}}' />
+                        <p>Download video as <a href="img/myvideo.mp4">MP4</a>, <a href="img/myvideo.webm">WebM</a>, or <a href="img/myvideo.ogv">Ogg</a>.</p>
+                    </object>
+                </video>
+                
+                
+            <!-- this displays a map of our location! -->
+                <div id="map">
+                    <img id="imgOfMap"></img>
+                
+                    <!-- this section is dynamically populated based on your location! -->
+                
+                </div>
+            
+            </div><!-- closing div for mainBody -->
+            
+            <div class="linkToMain">
+               <A href="https://cloudant.com/db/greenmachine/gigbag/_design/plugin/index.html">Link to Gigbag!</A>
+            </div><!-- closing dive for linkToMain -->
+            
+            <div class="footing">
+                <p>Cory Green</p>
+                <p>August 2nd, 2012</p>
+                <p>AVF1208</p>
+            </div><!-- closing div for footing -->
+            
+        </div><!-- closing div for app -->
+        
+        
+        
+        <!-- javascript -->
+        <script type="text/javascript" src="cordova-2.0.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
