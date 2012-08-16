@@ -6,6 +6,32 @@ var app = {
         document.addEventListener('deviceready', this.deviceready, false);
     },
     deviceready: function() {
+    
+    	 function checkconnection(){
+            
+            var networkState = navigator.network.connection.type;
+
+            
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            
+            // if user does not have a network connection, tell them to connect to something
+            if (states[networkState] === 'No network connection')
+            {
+                alert("Please connect to either cell connection or Wifi");
+            }
+           
+            alert('Connection type: ' + states[networkState]);
+
+            
+        }
        
         // alerts the user of their current location 
         var successfulLocation = function(position){
@@ -40,6 +66,7 @@ var app = {
         
         newRoutine();
         
+        checkconnection();
         console.log("Hello, im ready");
         console.log("hello");
         
@@ -48,13 +75,13 @@ var app = {
         // so we need to call app.report(), and not this.report()
         app.report('deviceready');
     },
-   // report: function(id) {
+    report: function(id) {
         console.log("report:" + id);
-         hide the .pending <p> and show the .complete <p>
+    //     hide the .pending <p> and show the .complete <p>
         document.querySelector('#' + id + ' .pending').className += ' hide';
         var completeElem = document.querySelector('#' + id + ' .complete');
         completeElem.className = completeElem.className.split('hide').join('');
-    }
+    } 
     
     
 };
