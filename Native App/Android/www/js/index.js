@@ -67,8 +67,7 @@ var app = {
         newRoutine();
         
         checkconnection();
-        console.log("Hello, im ready");
-        console.log("hello");
+        
         
     
         // note that this is an event handler so the scope is that of the event
