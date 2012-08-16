@@ -64,12 +64,78 @@ var app = {
             navigator.geolocation.getCurrentPosition(successfulLocation);
         }
         
-        newRoutine();
+        var destinationType;
+        var pictureSource;
         
-        checkconnection();
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+
+        // actual camera function
+        function cameraFunction(){
+                // Take picture using device camera and retrieve image as base64-encoded string
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+        }
         
+        function onPhotoDataSuccess(imageData){
+            // Get image handle
+            //
+            var smallImage = document.getElementById('smallImage');
+            
+            // Unhide image elements
+            //
+            smallImage.style.display = 'block';
+            
+            // Show the captured photo
+            // The inline CSS rules are used to resize the image
+            //
+            smallImage.src = "data:image/jpeg;base64," + imageData;
+        }
+
         
     
+        
+        function onPhotoURISuccess(imageURI){
+            var largeImage = document.getElementById('largeImage');
+            
+            // Unhide image elements
+            //
+            largeImage.style.display = 'block';
+            
+            // Show the captured photo
+            // The inline CSS rules are used to resize the image
+            //
+            largeImage.src = imageURI;
+        }
+        
+        
+        function getPhoto(source) {
+            // Retrieve image file location from specified source
+            navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+                                        destinationType: destinationType.FILE_URI,
+                                        sourceType: source });
+        }
+
+       
+        
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
+        
+        // calls on the geolocation portion of the app
+        newRoutine();
+        
+        // calls on the check type of connection routine
+        checkconnection();
+        
+
+        // launches the camera function
+        var takePhotoButton = document.getElementById('thisButton');
+        takePhotoButton.addEventListener('click', cameraFunction,false);
+        
+        document.getElementById('displayPhoto').setAttribute('onclick', 'getPhoto(pictureSource.PHOTOLIBRARY)');
+           
+        //showPhotoButton.addEventListener('click', getPhoto(pictureSource.PHOTOLIBRARY), false);
+        
         // note that this is an event handler so the scope is that of the event
         // so we need to call app.report(), and not this.report()
         app.report('deviceready');
