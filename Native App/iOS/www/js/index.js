@@ -6,7 +6,7 @@ var app = {
         document.addEventListener('deviceready', this.deviceready, false);
     },
     deviceready: function() {
-       
+   
         // alerts the user of their current location 
         var successfulLocation = function(position){
             
@@ -38,12 +38,65 @@ var app = {
             navigator.geolocation.getCurrentPosition(successfulLocation);
         }
         
+        
+        
+        function checkconnection(){
+            
+            var networkState = navigator.network.connection.type;
+            
+            
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.NONE]     = 'No network connection';
+            
+            
+            // if user does not have a network connection, tell them to connect to something
+            if (states[networkState] === ('No network connection'))
+            {
+                alert("Please connect to either cell connection or Wifi");
+            }
+            
+            alert('Connection type: ' + states[networkState]);
+            
+            
+        }
+        
+        // actual camera function
+        function cameraFunction(){
+        
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 30,
+                                    destinationType: Camera.DestinationType.FILE_URI });
+        
+        function onSuccess(imageURI) {
+            var image = document.getElementById('myImage');
+            image.src = imageURI;
+        }
+        
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
+        
+    }
+       
+        
+        // calls on the geolocation portion of the app
         newRoutine();
         
-        console.log("Hello, im ready");
-        console.log("hello");
+        // calls on the check type of connection routine
+        checkconnection();
         
-    
+
+        // launches the camera function
+        var newButton = document.getElementById('thisButton');
+        newButton.addEventListener('click', cameraFunction,false);
+        
+        
+        
         // note that this is an event handler so the scope is that of the event
         // so we need to call app.report(), and not this.report()
         app.report('deviceready');
