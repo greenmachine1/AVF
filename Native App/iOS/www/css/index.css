@@ -26,3 +26,27 @@ p{
     align: center;
 
 }
+
+h2{
+    text-align: center;
+    border: 2px solid black;
+}
+
+.linkToMain {
+    text-align: left;
+    padding: 10px;
+}
+
+#enableGeo {
+    align: left;
+    height: 10px;
+    color: black;
+}
+
+#enableConnection {
+   horizontal-align: right;
+   height: 10px;
+}
+
+
+

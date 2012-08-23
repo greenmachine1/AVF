@@ -40,7 +40,7 @@ var app = {
         
         
         
-        function checkconnection(){
+        function checkConnection(){
             
             var networkState = navigator.network.connection.type;
             
@@ -127,17 +127,27 @@ var app = {
         }
         
         // calls on the geolocation portion of the app
-        newRoutine();
+        //newRoutine();
         
         // calls on the check type of connection routine
-        checkconnection();
+        //checkconnection();
+        
+        // adds an event listener to the geoButton
+        var geoButton = document.getElementById('enableGeo');
+        geoButton.addEventListener('click', newRoutine,false);
+        
+        
+        
+        // for some reason doesnt work just yet.
+        var connectionButton = document.getElementById('enableConnection');
+        connectionButton.addEventListener('click', checkConnection,false);
         
 
         // launches the camera function
         var takePhotoButton = document.getElementById('thisButton');
         takePhotoButton.addEventListener('click', cameraFunction,false);
         
-        document.getElementById('displayPhoto').setAttribute('onclick', 'getPhoto(pictureSource.PHOTOLIBRARY)');
+        //document.getElementById('displayPhoto').setAttribute('onclick', 'getPhoto(pictureSource.PHOTOLIBRARY)');
            
         //showPhotoButton.addEventListener('click', getPhoto(pictureSource.PHOTOLIBRARY), false);
         

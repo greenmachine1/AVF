@@ -25,6 +25,9 @@
         <meta name = "format-detection" content = "telephone=no"/>
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+		<!-- <script src="http://vjs.zencdn.net/c/video.js"></script>-->
+		
         <title>Welcome to Gigbag</title>
     </head>
     <body>
@@ -40,11 +43,20 @@
             <div class="mainBody">
                 
                 <!-- will be replacing this video with my review video of the week -->
-               <video id="video" autobuffer height="240" width="360">
-					<source src="img/myvideo.mp4"></source>
-					<source src="img/myvideo.webm" type="video/webm"></source>
-					<source src="img/myvideo.theora.ogv" type="video/ogg"></source>
-				</video>
+               <!--  <video width="100%" onclick="this.play();" preload="controls">
+					<source src="myvideo.mp4" /></source>
+					<source src="myvideo.webm" type='video/webm; codecs="vp8, vorbis"' /></source>
+				</video>-->
+				
+				
+				<div id="mainMovie">
+					<video id="my_video_1" class="video-js vjs-default-skin" controls
+ 					 preload="auto" width="300" height="200" poster="img/cordova.png"
+ 					 data-setup="{}">
+ 						 <source src="www/img/myvideo.mp4" type='video/mp4'>
+ 						 <source src="www/img/myvideo.webm" type='video/webm'>
+					</video>
+				</div>
                 
             <!-- this displays a map of our location! -->
                 <div id="map">
@@ -75,7 +87,8 @@
         <script type="text/javascript" src="cordova-2.0.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-      //      app.initialize();
+      	 app.initialize(); 
         </script>
+        <script src="http://vjs.zencdn.net/c/video.js"></script>
     </body>
 </html>

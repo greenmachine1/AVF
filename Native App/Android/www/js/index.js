@@ -6,7 +6,11 @@ var app = {
         document.addEventListener('deviceready', this.deviceready, false);
     },
     deviceready: function() {
-    
+    	
+    	// note that this is an event handler so the scope is that of the event
+        // so we need to call app.report(), and not this.report()
+        app.report('deviceready');
+    	
     	 function checkconnection(){
             
             var networkState = navigator.network.connection.type;
@@ -35,7 +39,8 @@ var app = {
        
         // alerts the user of their current location 
         var successfulLocation = function(position){
-            
+        	// position
+            navigator.geolocation.getCurrentPosition();
             // taking the latitude and longitude coords and putting them into variables
             var lat = position.coords.latitude;
             var longi = position.coords.longitude;
@@ -62,7 +67,7 @@ var app = {
         // calls on the navigator.geolocation.getcurrent() function
         var newRoutine = function(){
             navigator.geolocation.getCurrentPosition(successfulLocation);
-        }
+        } 
         
         var destinationType;
         var pictureSource;
@@ -124,6 +129,7 @@ var app = {
         // calls on the geolocation portion of the app
         newRoutine();
         
+        
         // calls on the check type of connection routine
         checkconnection();
         
@@ -136,9 +142,7 @@ var app = {
            
         //showPhotoButton.addEventListener('click', getPhoto(pictureSource.PHOTOLIBRARY), false);
         
-        // note that this is an event handler so the scope is that of the event
-        // so we need to call app.report(), and not this.report()
-        app.report('deviceready');
+        
     },
     report: function(id) {
         console.log("report:" + id);
