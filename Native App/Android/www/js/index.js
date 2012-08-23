@@ -135,10 +135,10 @@ var app = {
         
 
         // launches the camera function
-        var takePhotoButton = document.getElementById('thisButton');
-        takePhotoButton.addEventListener('click', cameraFunction,false);
+        /*var takePhotoButton = document.getElementById('thisButton');
+        takePhotoButton.addEventListener('click', cameraFunction,false); */
         
-        document.getElementById('displayPhoto').setAttribute('onclick', 'getPhoto(pictureSource.PHOTOLIBRARY)');
+       // document.getElementById('displayPhoto').setAttribute('onclick', 'getPhoto(pictureSource.PHOTOLIBRARY)');
            
         //showPhotoButton.addEventListener('click', getPhoto(pictureSource.PHOTOLIBRARY), false);
         

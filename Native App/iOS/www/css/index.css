@@ -37,16 +37,18 @@ h2{
     padding: 10px;
 }
 
-#enableGeo {
-    align: left;
-    height: 10px;
-    color: black;
+
+#research {
+    text-align: center;
+    padding: 10px;
 }
 
-#enableConnection {
-   horizontal-align: right;
-   height: 10px;
+#ios {
+    text-align: center;
+
 }
+
+
 
 
 
